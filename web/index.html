@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Closeout — Saturday close</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="sheet">
+    <header class="top">
+      <h1>Closeout</h1>
+      <span class="tag">Synthetic demo</span>
+    </header>
+    <p class="context">Saturday close</p>
+
+    <section class="card figures" aria-label="Observed figures">
+      <dl>
+        <div>
+          <dt>Cash counted</dt>
+          <dd><span id="cash">–</span> tokens</dd>
+        </div>
+        <div>
+          <dt>Tally total</dt>
+          <dd><span id="tally">–</span> tokens</dd>
+        </div>
+      </dl>
+      <div class="diff">
+        <span>Unexplained difference</span>
+        <strong><span id="diff">–</span> tokens</strong>
+      </div>
+    </section>
+
+    <section class="gap" aria-label="Uncertainty">
+      <h2>Something doesn’t reconcile</h2>
+      <p id="uncertainty">–</p>
+      <p class="status">Status: <strong id="status">Unresolved</strong></p>
+    </section>
+
+    <section class="card ask" aria-label="Clarification question">
+      <button type="button" id="investigate" class="investigate">Investigate with Muse</button>
+      <p id="live-error" class="reply" hidden></p>
+      <p id="question" class="question">–</p>
+      <div class="answers" role="group" aria-label="Your answer">
+        <button type="button" data-answer="yes">Yes</button>
+        <button type="button" data-answer="no">No</button>
+        <button type="button" data-answer="unsure">Not sure</button>
+      </div>
+      <p id="reply" class="reply" hidden></p>
+      <button type="button" id="continue" class="investigate" hidden>Continue investigation</button>
+      <ol id="history" class="history" hidden></ol>
+      <div id="terminal" class="terminal" hidden>
+        <p><strong>UNRESOLVED.</strong> <span id="terminal-msg"></span></p>
+        <button type="button" id="restart" class="investigate">Restart investigation</button>
+      </div>
+    </section>
+
+    <section class="card evidence" aria-label="Photo evidence">
+      <div class="top">
+        <h2>Examine evidence</h2>
+        <span class="tag">Illustrative</span>
+      </div>
+      <p class="fine">If you have a receipt photo, it may resolve the open question above.
+        Add it while the investigation is open — extraction closes with it.</p>
+      <label class="dropzone" for="photo">
+        <svg class="camera" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+          <path fill="none" stroke="currentColor" stroke-width="1.8"
+            d="M4 8h3l2-2.5h6L17 8h3a1.5 1.5 0 0 1 1.5 1.5V18a1.5 1.5 0 0 1-1.5 1.5H4A1.5 1.5 0 0 1 2.5 18V9.5A1.5 1.5 0 0 1 4 8z"/>
+          <circle cx="12" cy="13.5" r="3.2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        </svg>
+        <strong>Add photo evidence</strong>
+        <span class="hint">JPEG or PNG · Maximum 5 MB</span>
+        <span class="hint">Camera or gallery</span>
+      </label>
+      <input type="file" id="photo" accept="image/jpeg,image/png" capture="environment">
+      <img id="preview" class="preview" alt="Selected receipt photo" hidden>
+      <button type="button" id="extract" class="investigate" hidden>Extract evidence</button>
+      <p id="evidence-error" class="reply" hidden></p>
+      <div id="extraction" hidden>
+        <div class="top">
+          <h2>Muse extracted</h2>
+          <span class="tag" id="ev-status">Unverified</span>
+        </div>
+        <dl class="ev-rows">
+          <div><dt>Document</dt><dd id="ev-doctype">–</dd></div>
+          <div><dt>Amount</dt><dd id="ev-amount" class="big">–</dd></div>
+          <div><dt>Date</dt><dd id="ev-date">–</dd></div>
+          <div><dt>Purpose</dt><dd id="ev-purpose">–</dd></div>
+        </dl>
+        <p id="ev-supporting" class="reply"></p>
+        <p id="ev-uncertainty" class="reply"></p>
+        <p class="fine">Candidate values only. The document has not been independently authenticated.</p>
+        <div class="review-row" role="group" aria-label="Review extraction">
+          <button type="button" id="ev-confirm" class="text-btn">Confirm text</button>
+          <button type="button" id="ev-correct" class="pill-btn">Correct text</button>
+        </div>
+        <button type="button" id="ev-discard" class="link-btn">Discard extraction</button>
+        <form id="ev-form" hidden>
+          <label>Document <select id="evf-doctype">
+            <option value="cash_drop_receipt">Cash-drop receipt</option>
+            <option value="other">Other</option>
+            <option value="unknown">Unknown</option>
+          </select></label>
+          <label>Amount (tokens) <input id="evf-amount" type="number" min="0" step="1" placeholder="Not readable"></label>
+          <label>Date <input id="evf-date" type="text"></label>
+          <label>Purpose <input id="evf-purpose" type="text"></label>
+          <button type="submit" class="investigate">Save correction</button>
+        </form>
+        <p id="ev-review" class="reply" hidden></p>
+        <button type="button" id="ev-compare" class="investigate" hidden>Compare evidence</button>
+        <div id="finding" hidden>
+          <div class="top">
+            <h2 id="finding-title">Finding</h2>
+            <span class="tag">Unresolved</span>
+          </div>
+          <dl class="ev-rows">
+            <div><dt>Original difference</dt><dd id="f-original">–</dd></div>
+            <div><dt>Candidate amount</dt><dd id="f-amount">–</dd></div>
+            <div><dt>Conditional remainder</dt><dd id="f-remainder" class="big">–</dd></div>
+          </dl>
+          <p id="f-explanation" class="reply"></p>
+          <p class="fine">Mathematical consistency only. The cash movement is still unverified.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p class="advisory">Closeout suggests what to check. It never confirms financial facts without evidence.</p>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

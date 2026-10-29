@@ -1,0 +1,77 @@
+[
+  {
+    "id": "synthetic-drop-001",
+    "title": "Evening cash drop timing",
+    "cash_evidence": "Cash box count shows 420 tokens at close on Saturday.",
+    "transaction_evidence": "Handwritten tally sheet lists sales totalling 510 tokens for the same day.",
+    "hypotheses": [
+      "Some sales were recorded but cash was removed before counting.",
+      "Some cash is from a previous day and the tally is correct.",
+      "The tally double-counts one batch of sales."
+    ],
+    "uncertainty_source": "timing of cash movement",
+    "clarification_target": "whether a cash drop was made before counting",
+    "target_keywords": ["drop", "removed", "taken out", "before counting", "midday"],
+    "expected_evidence": "drop log entry or witness statement for a pre-count cash removal"
+  },
+  {
+    "id": "synthetic-void-002",
+    "title": "Voided receipts still tallied",
+    "cash_evidence": "Evening cash of 260 tokens against a 100-token morning float, implying 160 tokens taken in.",
+    "transaction_evidence": "Numbered receipts for the day sum to 205 tokens.",
+    "hypotheses": [
+      "Several cash sales were made without issuing a receipt.",
+      "Some receipts were voided but still included in the total.",
+      "Part of the evening cash belongs to a separate float."
+    ],
+    "uncertainty_source": "record validity",
+    "clarification_target": "whether any receipts were voided yet still counted",
+    "target_keywords": ["void", "cancelled", "canceled", "receipt"],
+    "expected_evidence": "voided receipt copies or the receipt book with void markings"
+  },
+  {
+    "id": "synthetic-float-003",
+    "title": "Mixed float money",
+    "cash_evidence": "Drawer holds 340 tokens at close; the day started with a 100-token float kept in the same drawer.",
+    "transaction_evidence": "Till tape lists 290 tokens of sales, with no separate float record.",
+    "hypotheses": [
+      "Float money was mixed with takings and counted as sales.",
+      "Some sales never reached the till tape.",
+      "A second float was added mid-day and forgotten."
+    ],
+    "uncertainty_source": "mixed funds",
+    "clarification_target": "whether float money was mixed with the takings",
+    "target_keywords": ["float", "mixed", "separate", "drawer"],
+    "expected_evidence": "a separate float envelope or a float count sheet"
+  },
+  {
+    "id": "synthetic-batch-004",
+    "title": "Double-counted sales batch",
+    "cash_evidence": "Cash bag holds 610 tokens from Sunday trading.",
+    "transaction_evidence": "Two tally pages sum to 700 tokens, but both pages list the same morning batch.",
+    "hypotheses": [
+      "One morning batch was written onto both tally pages.",
+      "Afternoon cash was banked early and missed from the bag.",
+      "A page from Saturday was mixed into Sunday's tallies."
+    ],
+    "uncertainty_source": "tally procedure",
+    "clarification_target": "whether one sales batch was recorded on both tally pages",
+    "target_keywords": ["batch", "both pages", "double", "twice", "duplicate"],
+    "expected_evidence": "the two tally pages showing an identical batch line"
+  },
+  {
+    "id": "synthetic-gap-005",
+    "title": "Missing receipt page",
+    "cash_evidence": "Cash tin holds 185 tokens at close on Tuesday.",
+    "transaction_evidence": "Receipt book runs from number 31 to 58, but numbers 44 to 47 are missing with no stubs.",
+    "hypotheses": [
+      "A page of receipts was lost along with its cash.",
+      "Receipts 44 to 47 were never issued and the book skipped.",
+      "Cash for those receipts sits in a separate tin."
+    ],
+    "uncertainty_source": "gap in records",
+    "clarification_target": "what happened to the missing receipt numbers 44 to 47",
+    "target_keywords": ["44", "47", "missing", "page", "stubs", "receipt numbers"],
+    "expected_evidence": "the missing stubs, the loose page, or a note explaining the gap"
+  }
+]
